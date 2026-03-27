@@ -22,10 +22,11 @@ public class NewMonoBehaviourScript : MonoBehaviour
         // if collision with LoseZone happens print Game over
         if (collision.gameObject.name == "LoseZone")
         {
+            //Console output for testing
             Debug.Log("Game Over");
             
-            //Restart Game simple version for now
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            //Shows UI Game over text
+            FindObjectOfType<GameManager>().ShowGameOver();
             
             //Stop the ball once game is over and it touchs LoseZone
             rb.linearVelocity = Vector2.zero;

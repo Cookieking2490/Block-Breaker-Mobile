@@ -13,9 +13,25 @@ public class GameManager: MonoBehaviour
 
     // this win text object
     public TextMeshProUGUI winText;
+    
+    // The object Restart button
+    public GameObject restartButton;
 
     //this game object of the ball 
     public GameObject ball;
+    
+    //Game over text object
+    public TextMeshProUGUI gameOverText;
+    
+    //Function to show Game over text if the ball falls and fails level
+    public void ShowGameOver()
+    {
+        //Show text once game is over and function is called set to true(1)
+        gameOverText.gameObject.SetActive(true);
+        
+        //Show restart button when you lose the round
+        restartButton.SetActive(true);
+    }
 
     void Start()
     {
@@ -37,6 +53,9 @@ public class GameManager: MonoBehaviour
         {
             //Shows you win ui on screen for player
             winText.gameObject.SetActive(true);
+            
+            //After win condition met, the restart button will be showen
+            restartButton.SetActive(true);
             
             //Stop the ball once all bricks are gone win condition
             ball.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
