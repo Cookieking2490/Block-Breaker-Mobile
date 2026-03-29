@@ -20,3 +20,9 @@ MemoryCaptures/
 # OS files
 .DS_Store
 Thumbs.db
+
+#Fire base files
+*.apk
+*.aab
+
+Assets/Firebase/Plugins/x86_64/
