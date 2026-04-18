@@ -25,29 +25,29 @@ public class GameManager: MonoBehaviour
     
     
     public int totalBricks;
-    // Represents text on screen (UI), UI text object
+    
     public TextMeshProUGUI scoreText;
 
-    // this win text object
+    
     public TextMeshProUGUI winText;
     
-    // The object Restart button
+    
     public GameObject restartButton;
 
-    //this game object of the ball 
+    
     public GameObject ball;
     
-    //Game over text object
+    
     public TextMeshProUGUI gameOverText;
     
-    //Start panel object
+    
     public GameObject startPanel;
     
-    //Function to show Game over text if the ball falls and fails level
+    
     public void ShowGameOver()
     {
         
-        //Show text once game is over and function is called set to true(1)
+        
         gameOverText.gameObject.SetActive(true);
         
         if (restartButton != null)
@@ -55,10 +55,10 @@ public class GameManager: MonoBehaviour
         else
             Debug.LogError("RestartButton is NULL");
         
-        //Calling of function to save score to database
+        
         SaveScore(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         
-        //Show restart button when you lose the round
+        
         restartButton.SetActive(true);
         Time.timeScale = 0f;
         
@@ -96,7 +96,7 @@ public class GameManager: MonoBehaviour
         });
     }
 
-    //Function to save score after playing game or round
+    
     void SaveScore(string levelName)
     {
         if (auth.CurrentUser == null) return;
@@ -148,28 +148,28 @@ public class GameManager: MonoBehaviour
     }
     public void AddScore()
     {   
-        //Increase score by 10 with every brick broken
+        
         score += 10;
-        //Update the UI counter for the player
+        
         scoreText.text = ""+score;
-        //Decrease the total brick count by one with every count + meaning a brick was broken
+        
         totalBricks--;
 
-        //Check if brick counts is 0 meaning all breaks are broken
+        
         if (totalBricks <= 0)
         {
             SaveScore(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
-            //Shows you win ui on screen for player
+            
             winText.gameObject.SetActive(true);
             
-            //After win condition met, the restart button will be showen
+            
             restartButton.SetActive(true);
             
-            //Stop the ball once all bricks are gone win condition
+            
             ball.GetComponent<Rigidbody2D>().linearVelocity = Vector2.zero;
-            //Output Win cause all bricks are gone
+            
             Debug.Log("YOU WIN");
         }
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
 }

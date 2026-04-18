@@ -45,11 +45,8 @@ The game features user authentication, multiple levels, score tracking, and clou
 * Kenney Impact Sounds (Audio Effects)
   https://kenney.nl/assets/impact-sounds
 
-* Background Elements Remastered (Background)
-  https://kenney.nl/assets/background-elements-remastered
-  
-* Mobile Controls (Controls)
-  https://kenney.nl/assets/background-elements-remastered
+* TextMeshPro (UI Text System)
+  https://docs.unity3d.com/Packages/com.unity.textmeshpro@latest
 
 ---
 

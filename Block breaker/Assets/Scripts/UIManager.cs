@@ -4,14 +4,12 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public GameManager gm;
-    //Function to restart game
+    
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    //Functions to load all three levels
+    
     public void LoadLevel1()
     {
         SceneManager.LoadScene("Level 1");
@@ -32,15 +30,5 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f;
 
         FindObjectOfType<Ballcontroller>().LaunchBall();
-    }
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

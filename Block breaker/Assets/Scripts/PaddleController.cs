@@ -4,7 +4,7 @@ public class PaddleController : MonoBehaviour
 {
     public float speed = 10f;
     
-    //limit the movement of the paddle so it doesn't go beyond the two walls
+    
     float moveDirection= 0f;
 
     private Rigidbody2D rb;
@@ -14,9 +14,6 @@ public class PaddleController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
-    // Update is called once per frame
     void FixedUpdate()
     {
         rb.linearVelocity = new Vector2(moveDirection * speed, 0);
