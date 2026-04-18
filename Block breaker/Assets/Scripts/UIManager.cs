@@ -30,6 +30,8 @@ public class UIManager : MonoBehaviour
     {
         gm.startPanel.SetActive(false);
         Time.timeScale = 1f;
+
+        FindObjectOfType<Ballcontroller>().LaunchBall();
     }
     void Start()
     {

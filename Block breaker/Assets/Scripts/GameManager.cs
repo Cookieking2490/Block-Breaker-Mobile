@@ -7,19 +7,23 @@ using Firebase.Extensions;
 
 public class GameManager: MonoBehaviour
 {
-    //Database
+    
     private FirebaseFirestore db;
 
-    //Text of scores of the three levels
+    
     public TextMeshProUGUI Level1Text;
     public TextMeshProUGUI Level2Text;
     public TextMeshProUGUI Level3Text;
-    //Auth
+    public AudioSource audioSource;
+
+    public AudioClip brickHitSound;
+    public AudioClip paddleHitSound;
+    
     private FirebaseAuth auth;
-    //Score counter
+    
     public int score = 0;
     
-    //Total bricks count the conditions to win
+    
     public int totalBricks;
     // Represents text on screen (UI), UI text object
     public TextMeshProUGUI scoreText;
@@ -42,14 +46,22 @@ public class GameManager: MonoBehaviour
     //Function to show Game over text if the ball falls and fails level
     public void ShowGameOver()
     {
+        
         //Show text once game is over and function is called set to true(1)
         gameOverText.gameObject.SetActive(true);
+        
+        if (restartButton != null)
+            restartButton.SetActive(true);
+        else
+            Debug.LogError("RestartButton is NULL");
         
         //Calling of function to save score to database
         SaveScore(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         
         //Show restart button when you lose the round
         restartButton.SetActive(true);
+        Time.timeScale = 0f;
+        
     }
 
     void Start()

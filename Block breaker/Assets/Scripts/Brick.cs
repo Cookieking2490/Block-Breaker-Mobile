@@ -3,20 +3,34 @@ using UnityEngine;
 
 public class Brick : MonoBehaviour
 {
-    private GameManager gm;
+    public GameManager gm;
+    public GameObject breakEffect;
 
     void Start()
-    {
-        //Find GameManager in scene
-        gm = FindObjectOfType<GameManager>();
+    {   
+     gm= FindObjectOfType<GameManager>();
     }
+
+    void BreakBrick()
+    {
+        Instantiate(breakEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            //Increase score when brick breaks
+        if (collision.gameObject.CompareTag("Ball"))
+        {
+            FindObjectOfType<GameManager>().audioSource.PlayOneShot(
+                FindObjectOfType<GameManager>().brickHitSound
+                );
+            BreakBrick();
+            
             gm.AddScore();
-            //once ball collide with brick it breaks
+            
             Destroy(gameObject);
-        
+        }
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -95,6 +95,9 @@ public class AuthManager : MonoBehaviour
         //Remove login panel
         loginPanel.SetActive(false);
         
+        if(startPanel != null)
+            startPanel.SetActive(true);
+        
         FindObjectOfType<GameManager>().LoadScore();
         
         //Show the menu panel
