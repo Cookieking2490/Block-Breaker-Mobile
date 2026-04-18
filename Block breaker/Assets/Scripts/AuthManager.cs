@@ -6,17 +6,13 @@ using Firebase.Extensions;
 
 public class AuthManager : MonoBehaviour
 {
-    // Email input object
-    public TMP_InputField emailInput;
-  
-    // Password input object
-    public TMP_InputField passwordInput;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     
-    //Ui login panel object
+    public TMP_InputField emailInput;
+    
+    public TMP_InputField passwordInput;
+    
     public GameObject loginPanel;
-
-    //Fire base authentication object
+    
     private FirebaseAuth auth;
 
     public GameObject startPanel;
@@ -47,14 +43,14 @@ public class AuthManager : MonoBehaviour
         });
     }
 
-    //Log out function 
+    
     public void Logout()
     {
-        //Authentication log out
+        
         auth.SignOut();
-        //Show login Panel
+        
         loginPanel.SetActive(true);
-        //Hide menu
+        
         startPanel.SetActive(false);
         Debug.Log("User logged out");
     }
@@ -92,7 +88,7 @@ public class AuthManager : MonoBehaviour
 
     void EnterGame()
     {
-        //Remove login panel
+        
         loginPanel.SetActive(false);
         
         if(startPanel != null)
@@ -100,10 +96,10 @@ public class AuthManager : MonoBehaviour
         
         FindObjectOfType<GameManager>().LoadScore();
         
-        //Show the menu panel
+        
         startPanel.SetActive(true);
         
-        //Game stays paused
+        
         Time.timeScale = 0f;
     }
     

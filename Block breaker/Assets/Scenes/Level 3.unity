@@ -12606,6 +12606,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrickEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 8564523199956923225, guid: 6aa4c21b2ada27c49848d7509a170b15, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8913795980627588493, guid: 6aa4c21b2ada27c49848d7509a170b15, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.54949
