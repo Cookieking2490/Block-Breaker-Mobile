@@ -42,14 +42,22 @@ public class GameManager: MonoBehaviour
     //Function to show Game over text if the ball falls and fails level
     public void ShowGameOver()
     {
+        
         //Show text once game is over and function is called set to true(1)
         gameOverText.gameObject.SetActive(true);
+        
+        if (restartButton != null)
+            restartButton.SetActive(true);
+        else
+            Debug.LogError("RestartButton is NULL");
         
         //Calling of function to save score to database
         SaveScore(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
         
         //Show restart button when you lose the round
         restartButton.SetActive(true);
+        Time.timeScale = 0f;
+        
     }
 
     void Start()
