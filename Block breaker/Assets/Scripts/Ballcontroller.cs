@@ -3,11 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class Ballcontroller : MonoBehaviour
 {
-    //stores the component of the ball
+    
     private Rigidbody2D rb;
-    //Controls how fast the ball moves vertically
+    
     public float speed= 6f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     public GameManager gm;
     void Start()
     {
@@ -15,6 +15,16 @@ public class Ballcontroller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         gm = FindObjectOfType<GameManager>();
         
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Paddle"))
+        {
+            FindObjectOfType<GameManager>().audioSource.PlayOneShot(
+                FindObjectOfType<GameManager>().paddleHitSound
+            );
+        }
     }
 
     //Function to see if ball touches the Lose zone 

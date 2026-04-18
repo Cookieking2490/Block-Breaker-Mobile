@@ -7,19 +7,23 @@ using Firebase.Extensions;
 
 public class GameManager: MonoBehaviour
 {
-    //Database
+    
     private FirebaseFirestore db;
 
-    //Text of scores of the three levels
+    
     public TextMeshProUGUI Level1Text;
     public TextMeshProUGUI Level2Text;
     public TextMeshProUGUI Level3Text;
-    //Auth
+    public AudioSource audioSource;
+
+    public AudioClip brickHitSound;
+    public AudioClip paddleHitSound;
+    
     private FirebaseAuth auth;
-    //Score counter
+    
     public int score = 0;
     
-    //Total bricks count the conditions to win
+    
     public int totalBricks;
     // Represents text on screen (UI), UI text object
     public TextMeshProUGUI scoreText;

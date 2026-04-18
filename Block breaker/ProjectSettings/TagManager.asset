@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - LoseZone
+  - Paddle
   layers:
   - Default
   - TransparentFX
