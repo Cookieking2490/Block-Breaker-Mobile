@@ -28,7 +28,7 @@ public class Brick : MonoBehaviour
             
             gm.AddScore();
             
-            Destroy(gameObject);
+            
         }
 
     }
