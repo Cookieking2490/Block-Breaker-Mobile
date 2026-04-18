@@ -12,7 +12,7 @@ Technologies:
 - Unity
 - C#
 - REST API
-- SQLite or Firebase
+- Firebase
 
 Steps to run:
 1. Clone repository
